@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinay Vijayan Menon - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #1c2128;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --accent-secondary: #3fb950;
+            --border: #30363d;
+            --highlight: #388bfd26;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        header {
+            position: relative;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cert-badges {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            gap: 12px;
+        }
+
+        .cert-badges img {
+            width: 60px;
+            height: auto;
+            opacity: 0.85;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .cert-badges img:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-info {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            margin-bottom: 8px;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-secondary);
+            text-decoration: underline;
+        }
+
+        .cisco-id {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        section {
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .summary {
+            background: var(--bg-card);
+            padding: 20px 24px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .skill-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .skill-label {
+            font-weight: 600;
+            color: var(--accent);
+            min-width: 180px;
+            font-size: 0.9rem;
+        }
+
+        .skill-value {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .experience-item {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s ease;
+        }
+
+        .experience-item:hover {
+            border-color: var(--accent);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .company {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .date {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-secondary);
+            background: rgba(63, 185, 80, 0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .role {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-item li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .experience-item li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .experience-item li strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .cert-item {
+            background: var(--bg-card);
+            padding: 14px 18px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cert-item::before {
+            content: '✓';
+            color: var(--accent-secondary);
+            font-weight: bold;
+        }
+
+        .cert-item .validity {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-left: auto;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .cert-badges {
+                position: static;
+                margin-bottom: 16px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .skill-row {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .skill-label {
+                min-width: auto;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .certs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: #1a1a1a;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            :root {
+                --bg-primary: white;
+                --bg-secondary: #f5f5f5;
+                --bg-card: #fafafa;
+                --text-primary: #1a1a1a;
+                --text-secondary: #555;
+                --accent: #0066cc;
+                --border: #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="cert-badges">
+                <img src="Devnet certifications_professional_RGB_300ppi.png" alt="Cisco DevNet Professional" title="Cisco Certified DevNet Professional">
+                <img src="Devnet certifications_specialist_Black.jpg" alt="Cisco DevNet Specialist" title="Cisco Certified DevNet Specialist">
+            </div>
+            <h1>Vinay Vijayan Menon</h1>
+            <div class="contact-info">
+                <span>📍 Vancouver, BC</span>
+                <span>📱 +1-(236) 333-8346</span>
+                <span>✉️ <a href="mailto:vinaymenon@gmail.com">vinaymenon@gmail.com</a></span>
+                <span>🔗 <a href="https://www.linkedin.com/in/vinaymenon81/" target="_blank">LinkedIn</a></span>
+            </div>
+            <span class="cisco-id">Cisco ID: CSCO11459415</span>
+        </header>
+
+        <section>
+            <h2>Professional Summary</h2>
+            <p class="summary">
+                Seasoned Network Engineering Lead with over 15 years of experience in the design, integration, and automation of large-scale infrastructure for global SaaS and Financial sectors. Expert in bridging technical gaps between technology partners and product teams to deliver validated networking solutions. Proven track record in developing Python/Go-based automation and low-level firmware, ensuring seamless interoperability across multi-vendor environments (Cisco, Juniper, HPE, F5).
+            </p>
+        </section>
+
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-row">
+                    <span class="skill-label">Automation & DevOps</span>
+                    <span class="skill-value">Ansible, Python, Golang, Jenkins (REST APIs), AAP, TRAC, SVN</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-label">Networking</span>
+                    <span class="skill-value">Cisco (DevNet Professional/CCNP), Juniper (JNCIS-ENT), ZTE, F5, Citrix NetScaler</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-label">Cloud & OS</span>
+                    <span class="skill-value">Kubernetes (CKA/CKAD), Docker, Embedded Linux, Atheros MIPS/Broadcom Mipsel</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-label">Validation</span>
+                    <span class="skill-value">Packet Capture (NetFlow/Cascade Shark), BGP, MPLS, WAN Optimization (Riverbed)</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Professional Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="company">Salesforce.com (BC, Canada & Singapore)</span>
+                    <span class="date">Jun 2016 – Present</span>
+                </div>
+                <div class="role">Lead Network Engineer – Network Capacity Delivery</div>
+                <ul>
+                    <li><strong>Partner Enablement:</strong> Act as the technical bridge between capacity delivery and automation teams to align infrastructure toolsets with global scaling requirements.</li>
+                    <li><strong>Validation & Automation:</strong> Engineered MFA-backed Ansible/Python modules for multi-vendor gear discovery and automated CLI execution across OpenGear and MRV platforms.</li>
+                    <li><strong>Orchestration:</strong> Designed dynamic Jenkins pipelines via REST APIs to automate change-management workflows, ensuring high-fidelity delivery of network services.</li>
+                    <li><strong>Global Infrastructure:</strong> Lead Engineer for datacenter builds (4.5MW Frankfurt, Tokyo, Osaka), managing technical guidance for rack layouts and cabling standards.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="company">Citigroup / Citicorp (Singapore & Malaysia)</span>
+                    <span class="date">Nov 2010 – Dec 2014</span>
+                </div>
+                <div class="role">Tier 3 Engineer / Senior Network Consultant</div>
+                <ul>
+                    <li><strong>Technical Liaison:</strong> Network Lead for Asia Square Campus (4,000+ users), coordinating between program managers and vendors for secure Trade Floor infrastructure.</li>
+                    <li><strong>Multi-Vendor Integration:</strong> Performed interoperability testing for complex environments involving F5 LTM/GTM, Citrix, and Riverbed Steelhead optimization.</li>
+                    <li><strong>High-Level Support:</strong> Highest point of escalation for global production issues, utilizing deep-dive packet analysis and NetFlow to resolve high-priority bottlenecks.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="company">ZTE Telecom India</span>
+                    <span class="date">Jul 2010 – Nov 2010</span>
+                </div>
+                <div class="role">Sr. Network Engineer – IP</div>
+                <ul>
+                    <li><strong>Technical Validation:</strong> Collaborated with Pre-Sales for Proof of Concept (PoC) and Business Readiness Testing for carrier-grade MPLS solutions and CPE devices.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="company">SunGard Availability Services</span>
+                    <span class="date">Oct 2006 – Jul 2010</span>
+                </div>
+                <div class="role">Network Engineer</div>
+                <ul>
+                    <li><strong>Managed Services:</strong> Managed diverse networking portfolios for over 30 customers, ensuring 99.9% uptime across multi-vendor firewalls (Check Point, Cisco ASA) and switches.</li>
+                    <li><strong>Lifecycle Management:</strong> Lead hardware upgrades and software patching, maintaining TRAC and SVN servers for team performance reporting.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="company">Kalpesh Wireless / Kalpesh Technologies</span>
+                    <span class="date">Dec 2005 – Sep 2006</span>
+                </div>
+                <div class="role">Software Consultant</div>
+                <ul>
+                    <li><strong>Firmware Development:</strong> Developed wireless mesh routing protocols for embedded Linux firmware.</li>
+                    <li><strong>Hardware Porting:</strong> Coded and ported protocols to Atheros MIPS and Broadcom Mipsel boards, demonstrating deep-seated knowledge of networking hardware fundamentals.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Certifications & Education</h2>
+            <div class="certs-grid">
+                <div class="cert-item">
+                    Cisco Certified DevNet Professional
+                    <span class="validity">→ Mar 2026</span>
+                </div>
+                <div class="cert-item">
+                    Cisco Certified Network Professional (CCNP)
+                    <span class="validity">→ Mar 2029</span>
+                </div>
+                <div class="cert-item">
+                    Certified Kubernetes Administrator (CKA)
+                </div>
+                <div class="cert-item">
+                    Certified Kubernetes Application Developer (CKAD)
+                </div>
+                <div class="cert-item">
+                    Juniper Networks JNCIS-ENT
+                </div>
+                <div class="cert-item">
+                    ITIL Foundation V3
+                </div>
+                <div class="cert-item">
+                    B.E. Electronics Engineering, Mumbai University
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
